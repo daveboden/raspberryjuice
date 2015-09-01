@@ -3,5 +3,3 @@
 0. Run Minecraft and add your IP as a new server.
 0. Join Multiplayer.
 0. Now you are ready to interact with Minecraft using Python!
-
-Note: Step #4 is important, because certain Python methods require a player to be present in server (such as .playerPos())

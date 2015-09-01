@@ -1,9 +1,9 @@
 # Starting point - Official image with OpenJRE 8
 FROM java:8-jre
 
-MAINTAINER Paul Choi <paulchoi@alum.berkeley.edu>
+MAINTAINER wh11e7rue <wh11e7rue@icloud.com>
 
-WORKDIR /minecraft
+WORKDIR /spigot
 
 # Accept Mojang EULA
 RUN echo "eula=TRUE" > eula.txt
@@ -16,18 +16,18 @@ RUN echo "[]" > usercache.json
 RUN echo "[]" > whitelist.json
 
 # Add server settings
-ADD server.properties /minecraft/
+ADD server.properties /spigot/
 
-# Downloaded from http://tcpr.ca/craftbukkit
-ADD craftbukkit-1.8.3-R0.1-SNAPSHOT-latest.jar /minecraft/
+# Download from http://getspigot.org
+RUN wget http://getspigot.org/spigot18/spigot_server.jar
 
-# Downloaded from https://github.com/zhuowei/RaspberryJuice
-ADD RaspberryJuice/jars/raspberryjuice-1.7.jar /minecraft/plugins/
+# Download from https://github.com/zhuowei/RaspberryJuice
+RUN wget -P plugins https://github.com/zhuowei/RaspberryJuice/raw/master/jars/raspberryjuice-1.7.jar
 
-# Port 4711 is for mcpi
+# for mcpi
 EXPOSE 4711
+
+# for minecraft
 EXPOSE 25565
 
-CMD java -Xmx1024M -Xms1024M \
-    -jar /minecraft/`find /minecraft/ -name "craftbukkit*.jar" \
-        | xargs basename`
+CMD java -Xmx1024M -Xms1024M -jar /spigot/spigot_server.jar

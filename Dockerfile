@@ -1,8 +1,6 @@
 # Starting point - Official image with OpenJRE 8
 FROM java:8-jre
 
-#MAINTAINER wh11e7rue <wh11e7rue@icloud.com>
-
 WORKDIR /spigot
 
 # Accept Mojang EULA
@@ -30,4 +28,4 @@ EXPOSE 4711
 # for minecraft
 EXPOSE 25565
 
-CMD java -Xmx1024M -Xms1024M -jar /spigot/spigot-1.9.4.jar
+CMD java -Xmx900M -Xms900M -jar /spigot/spigot-1.9.4.jar

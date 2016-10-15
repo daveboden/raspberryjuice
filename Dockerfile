@@ -17,7 +17,7 @@ RUN echo "[]" > whitelist.json
 ADD server.properties /spigot/
 
 # Download spigot
-RUN wget https://ci.mcadmin.net/job/Spigot/68/artifact/spigot-1.9.4.jar
+RUN wget https://ci.mcadmin.net/job/Spigot/100/artifact/spigot-1.10.2.jar
 
 # Download RaspberryJuice plugin
 RUN wget -P plugins https://github.com/zhuowei/RaspberryJuice/raw/master/jars/raspberryjuice-1.8.jar
@@ -28,4 +28,4 @@ EXPOSE 4711
 # for minecraft
 EXPOSE 25565
 
-CMD java -Xmx900M -Xms900M -jar /spigot/spigot-1.9.4.jar
+CMD java -Xmx900M -Xms900M -jar /spigot/spigot-1.10.2.jar
